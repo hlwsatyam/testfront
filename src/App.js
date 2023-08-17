@@ -5,12 +5,20 @@ import axios from 'axios'
 function App() {
   const [text, settext] = useState("hellow")
   useEffect(() => {
+    // const fetchData = async () => {
+    //   await axios.post("https://satyamnewsapi.onrender.com/table", { text }).then((res) => {
+    //     console.log(res.data)
+    //   })
+    // }
+    // fetchData()
+
     const fetchData = async () => {
-      await axios.post("https://satyamnewsapi.onrender.com/table", { text }).then((res) => {
+      await axios.get("http://localhost:8000").then((res) => {
         console.log(res.data)
       })
     }
     fetchData()
+
   }, [text])
 
 
