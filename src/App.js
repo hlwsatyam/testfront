@@ -13,8 +13,9 @@ function App() {
     // fetchData()
 
     const fetchData = async () => {
-      await axios.get("http://localhost:8000").then((res) => {
-        console.log(res.data)
+      await axios.get("https://satyamnewsapi.onrender.com/").then((res) => {
+        settext(res.data)
+
       })
     }
     fetchData()
@@ -31,8 +32,8 @@ function App() {
   return (
     < div className="App" >
       <div className="App-header">
-        Hey Data is Coming ?
-
+        Hey Data is Coming ? :
+        <h1> {text} </h1>
         <button onClick={change}   >Send data To Backend!</button>
       </div>
     </ div >
