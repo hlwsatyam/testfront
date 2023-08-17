@@ -3,22 +3,29 @@ import './App.css';
 import react, { useEffect, useState } from 'react'
 import axios from 'axios'
 function App() {
-  const [text, , setText] = useState("hellow")
+  const [text, settext] = useState("hellow")
   useEffect(() => {
-
     const fetchData = async () => {
-      await axios.post("http://localhost:8000/table", { text }).then((res) => {
+      await axios.post("https://satyamnewsapi.onrender.com/table", { text }).then((res) => {
         console.log(res.data)
       })
     }
     fetchData()
   }, [text])
+
+
+  const change = () => {
+    settext("world!")
+
+  }
+
+
   return (
     < div className="App" >
       <div className="App-header">
         Hey Data is Coming ?
 
-        <button>Send data To Backend!</button>
+        <button onClick={change}   >Send data To Backend!</button>
       </div>
     </ div >
   );
